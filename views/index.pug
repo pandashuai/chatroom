@@ -1,0 +1,123 @@
+extends layout
+
+block content
+	.login
+		.yq
+			-var a = Math.floor(Math.random()*23+1);
+			img(src='/images/user/default/tx ('+a+').jpg', alt="")
+			input(type="file", accept="image/*")
+			.input-group
+					input.form-control(type="text" placeholder="你的昵称……")
+					span.input-group-btn
+						button#login.btn.btn-default(type="button") GO!
+	.chardesktop
+		.header
+			.btnk
+				span.icon-reorder
+			ul.function-list
+				li
+					span.icon-home
+					b  首页
+				li
+					span.icon-comments
+					b  聊天室
+				li
+					span.icon-search
+					b  搜索
+				li
+					span.icon-plus
+					b  新建聊天室
+				li
+					span.icon-cog
+					b  设置
+			.xxx
+		.function
+			.aa.home.scrollbar-macosx
+				h1 公共群组
+				.room_list
+					- var aa=['都市生活','同桌的你','悄悄细语','周公解梦','美食天地','我的闺蜜']
+					-for(var i=0;i<6;i++)
+						.col-xs-6.col-sm-4.col-md-4
+							.ih-item.square.effect6.op_to_bottom
+								a
+									.img
+										img(src="images/rooms/default/"+(i+1)+".jpg", alt="聊天室"+(i+1))
+									.info
+										h3 #{aa[i]}
+									span
+										span.glyphicon.glyphicon-user
+										| 0人
+			.aa.comments
+				span.icon-chevron-down
+				ul.rooms-list.scrollbar-macosx
+				.rooms
+					.btimg
+						img(src="#", alt="", ondragstart="return false;")
+						.btnimg
+							span.icon-remove
+							span.icon-minus.k
+							span.icon-plus.k
+							span.icon-resize-full.k
+							span.icon-undo.k
+							span.icon-repeat.k
+			.aa.search
+				.input-group
+					input.form-control(type="text" placeholder="键入聊天室昵称...")
+					span.input-group-btn
+						button#search.btn.btn-default(type="button") Go!
+				.box
+					.search-list.scrollbar-macosx
+			.aa.plus.scrollbar-macosx
+				h1 新建聊天室
+				.rbd
+					img(src='/images/user/default/tx ('+a+').jpg', alt="")
+					input(type="file", accept="image/*")
+					input.roomName.form-control(type="text" placeholder="聊天室昵称")
+					input.roomJS.form-control(type="text" placeholder="聊天室介绍……")
+					button#addroom.btn.btn-primary.pull-right(type="button") 建立
+			.aa.cog
+				ul.cog-list.scrollbar-macosx
+					li 帐号设置
+					li 主题布局
+					li 个性壁纸
+					li 通用设置
+					li 关于帮助
+				.cog-main
+					.tit
+						span.glyphicon.glyphicon-arrow-left
+						b 设置 
+					.main.cogu.scrollbar-macosx
+						img(src="#", alt="")
+						input(type="file", accept="image/*")
+						.input-group
+							input.form-control(type="text")
+							span.input-group-btn
+								button#userinfo.btn.btn-default(type="button") GO!
+					.main.theme.scrollbar-macosx
+							.col-md-6
+								img(src="/images/theme/pc.png" style="width: 100%;" alt="pc")
+							.col-md-6
+								img(src="/images/theme/pb.png" style="width: 100%;" alt="pb")
+					.main.cogzt.scrollbar-macosx
+						-for(var i=0;i<21;i++)
+							.col-xs-6.col-sm-4.col-md-3
+								a.thumbnail(href="#" style="height: 100px;")
+									img(src="/images/theme/default/"+(i+1)+"_xs.jpg", data-alt=(i+1) style="width: 100%;height: 100%;")
+					.main.cogs.scrollbar-macosx
+						.kjj
+							label 发送消息：
+							.btn-group
+								button(type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false")
+									b 按
+										kbd Ctrl+Enter
+									span.caret
+								ul.dropdown-menu(role="menu")
+									li
+										a 按
+											kbd Enter
+									li
+										a 按
+											kbd Ctrl+Enter
+					.main.scrollbar-macosx 暂无帮助
+	.prompt
+		.text

@@ -1,0 +1,23 @@
+doctype html
+html
+	head
+		title=title
+		meta(charset='utf-8')
+		meta(name='Keywords', content='在线聊天室')
+		meta(name='Description', content='一个基于node+pug+socket.io在线简易聊天室')
+		meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no")
+		link(rel='shortcut icon', href='/images/favicon.ico')
+		//- bootstrap
+		link(rel="stylesheet", href="/lib/bootstrap/css/bootstrap.min.css")
+		//- 字体
+		link(rel='stylesheet', href='/lib/Font-Awesome/css/font-awesome.min.css')
+		//- 滚动条
+		link(rel="stylesheet", href="/lib/rolling/css/rolling.css")
+		//- ihover
+		link(rel="stylesheet", href="/lib/ihover/ihover.min.css")
+
+		link(rel='stylesheet', href='/stylesheets/public.css')
+
+		script(type="text/javascript", data-main="/lib/require/main.js", src="/lib/require/require.js")
+	body.pc
+		block content
