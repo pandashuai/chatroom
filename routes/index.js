@@ -1,11 +1,33 @@
 var express = require('express');
+var controller = require('./controller');
 var router = express.Router();
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+router.map = function(obj, route) {
+	route = route || '';
+	for (var key in obj) {
+		if(obj.hasOwnProperty(key)) {
+			switch(typeof(obj[key])) {
+				case "object":
+					router.map(obj[key], route + key);
+					break;
+				case "function":
+					router[key](route, obj[key]);
+					break;
+			}
+		}
+	}
+}
+
+router.map({
+	'/': {
+		get: controller.homePage
+	},
+	'/compatible': {
+		get: controller.compatiblePage
+	},
+	'/upload-file': {
+		post: controller.imgfile
+	}
 });
-router.get('/login', function(req, res, next) {
-  res.render('login', { title: 'Express' });
-});
+
 module.exports = router;
